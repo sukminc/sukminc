@@ -13,7 +13,11 @@ from reportlab.platypus import HRFlowable, Paragraph, SimpleDocTemplate, Spacer
 ROOT = Path(__file__).resolve().parent
 AVENIR_NEXT = "/System/Library/Fonts/Avenir Next.ttc"
 CONTACT_LINE_1 = "North York, ON | 416-300-7316 | chris.yoon@outlook.com"
-CONTACT_LINE_2 = "linkedin.com/in/sukminyoon | github.com/sukminc | onepercentbetter.dev"
+CONTACT_LINE_2 = (
+    '<link href="https://linkedin.com/in/sukminyoon" color="#4E4A44">linkedin.com/in/sukminyoon</link>'
+    ' | <link href="https://github.com/sukminc" color="#4E4A44">github.com/sukminc</link>'
+    ' | <link href="https://onepercentbetter.dev" color="#4E4A44">onepercentbetter.dev</link>'
+)
 
 VARIANTS = {
     "data_engineer": {
@@ -43,6 +47,7 @@ VARIANTS = {
             {
                 "name": "Blue Jays Moneyball ETL",
                 "meta": "Public repo | Live",
+                "url": "https://github.com/sukminc/bluejays-financial-mlops",
                 "bullets": [
                     "Production-style Airflow and PostgreSQL pipeline with fail-fast data quality gates.",
                     "Includes regression coverage that proves the guardrails still fail when they should, treating data safety as part of CI rather than documentation.",
@@ -51,6 +56,7 @@ VARIANTS = {
             {
                 "name": "1% Better Today",
                 "meta": "Public repo | Current",
+                "url": "https://github.com/sukminc/one-percent-better-today",
                 "bullets": [
                     "Small daily reset product designed to be easy to release, easy to use, and easy to improve.",
                     "Shows that I can move from idea to shipped product without hiding behind long planning cycles.",
@@ -59,6 +65,7 @@ VARIANTS = {
             {
                 "name": "1% Better Focus",
                 "meta": "Public repo | Current",
+                "url": "https://github.com/sukminc/one-percent-better-focus",
                 "bullets": [
                     "Lightweight focus timer built around a narrow user loop, quick iteration, and low-friction product scope.",
                 ],
@@ -66,6 +73,7 @@ VARIANTS = {
             {
                 "name": "TwelveLabs API Validator",
                 "meta": "Public repo | Live",
+                "url": "https://github.com/sukminc/TwelveLabs",
                 "bullets": [
                     "Python validation framework for multimodal search covering fuzzy matching, multilingual queries, and injection-style edge cases.",
                 ],
@@ -104,6 +112,7 @@ VARIANTS = {
             {
                 "name": "1% Better Today",
                 "meta": "Public repo | Current",
+                "url": "https://github.com/sukminc/one-percent-better-today",
                 "bullets": [
                     "Small daily reset product built around minimal friction and immediate usefulness.",
                     "Represents the kind of narrow, shippable product I can move from concept to release quickly.",
@@ -112,6 +121,7 @@ VARIANTS = {
             {
                 "name": "1% Better Focus",
                 "meta": "Public repo | Current",
+                "url": "https://github.com/sukminc/one-percent-better-focus",
                 "bullets": [
                     "Lightweight focus timer shaped by the same thesis: clear value, low complexity, and visible progress.",
                 ],
@@ -119,6 +129,7 @@ VARIANTS = {
             {
                 "name": "ActionKeeper",
                 "meta": "Public repo | Building",
+                "url": "https://github.com/sukminc/one-percent-better-poker-staking",
                 "bullets": [
                     "Full-stack workflow product for structured offers, counters, and agreement tracking with persistent audit history.",
                     "Shows product thinking around trust, negotiation state, and multi-step user flows.",
@@ -127,6 +138,7 @@ VARIANTS = {
             {
                 "name": "Blue Jays Moneyball ETL",
                 "meta": "Public repo | Live",
+                "url": "https://github.com/sukminc/bluejays-financial-mlops",
                 "bullets": [
                     "Keeps my backend and data engineering edge sharp through production-style pipelines and guardrail design.",
                 ],
@@ -309,7 +321,8 @@ def build_common_experience(styles):
 def build_projects(projects, styles):
     items = []
     for project in projects:
-        items.extend(role(project["name"], project["meta"].split(" | ")[0], f"GitHub | {project['meta'].split(' | ')[1]}", styles))
+        linked_name = f'<link href="{project["url"]}" color="#111111">{project["name"]}</link>'
+        items.extend(role(linked_name, project["meta"].split(" | ")[0], f"GitHub | {project['meta'].split(' | ')[1]}", styles))
         items.extend(bullets(project["bullets"], styles))
     return items
 
@@ -321,7 +334,10 @@ def build_story(variant_name):
         Paragraph("Chris S. Yoon", styles["name"]),
         Paragraph(config["eyebrow"], styles["eyebrow"]),
         Spacer(1, 0.03 * inch),
-        Paragraph(CONTACT_LINE_1, styles["contact"]),
+        Paragraph(
+            'North York, ON | 416-300-7316 | <link href="mailto:chris.yoon@outlook.com" color="#4E4A44">chris.yoon@outlook.com</link>',
+            styles["contact"],
+        ),
         Paragraph(CONTACT_LINE_2, styles["contact"]),
         Spacer(1, 0.05 * inch),
     ]
