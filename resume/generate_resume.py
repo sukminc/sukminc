@@ -7,7 +7,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import HRFlowable, ListFlowable, ListItem, Paragraph, SimpleDocTemplate, Spacer
+from reportlab.platypus import HRFlowable, Paragraph, SimpleDocTemplate, Spacer
 
 
 ROOT = Path(__file__).resolve().parent
@@ -196,8 +196,9 @@ def build_styles():
             fontName="AvenirNext-Regular",
             fontSize=9.7,
             leading=12.6,
-            leftIndent=0,
-            spaceAfter=0,
+            leftIndent=17,
+            firstLineIndent=-11,
+            spaceAfter=2,
             textColor=colors.HexColor("#171717"),
         ),
         "role": ParagraphStyle(
@@ -253,22 +254,17 @@ def role(title, company, meta, styles):
 
 
 def bullets(items, styles):
-    return ListFlowable(
-        [ListItem(Paragraph(item, styles["bullet"]), leftIndent=0) for item in items],
-        bulletType="bullet",
-        bulletFontName="AvenirNext-Regular",
-        bulletFontSize=7.4,
-        leftIndent=12,
-        bulletDedent=4,
-        spaceBefore=0,
-        spaceAfter=4,
-    )
+    bullet_lines = []
+    for item in items:
+        bullet_lines.append(Paragraph(f"•&nbsp;{item}", styles["bullet"]))
+    bullet_lines.append(Spacer(1, 0.03 * inch))
+    return bullet_lines
 
 
 def build_common_experience(styles):
     items = []
     items.extend(role("Senior Data Engineer", "theScore / ESPN Bet", "Toronto, ON | Jul 2023 - Jul 2025", styles))
-    items.append(
+    items.extend(
         bullets(
             [
                 "Built and maintained Apache Airflow DAGs orchestrating ingestion and transformation across BigQuery and AWS Redshift for millions of daily betting transactions.",
@@ -281,7 +277,7 @@ def build_common_experience(styles):
     )
 
     items.extend(role("Tech Lead", "QA Consultants", "Client: Avesis | Remote | Mar 2021 - Mar 2023", styles))
-    items.append(
+    items.extend(
         bullets(
             [
                 "Led technical design for insurance ETL pipelines, defining data mapping specs and transformation logic for large-scale claims workflows.",
@@ -292,7 +288,7 @@ def build_common_experience(styles):
     )
 
     items.extend(role("Data Engineer", "QA Consultants", "Client: Jewelers Mutual | Remote | Feb 2020 - Mar 2021", styles))
-    items.append(
+    items.extend(
         bullets(
             [
                 "Authored and optimized SQL and Python ETL scripts for warehouse loading and introduced automated profiling to surface quality issues at ingestion.",
@@ -315,7 +311,7 @@ def build_projects(projects, styles):
     items = []
     for project in projects:
         items.extend(role(project["name"], project["meta"].split(" | ")[0], f"GitHub | {project['meta'].split(' | ')[1]}", styles))
-        items.append(bullets(project["bullets"], styles))
+        items.extend(bullets(project["bullets"], styles))
     return items
 
 
@@ -340,7 +336,7 @@ def build_story(variant_name):
 
     items.extend(section("EXPERIENCE", styles))
     items.extend(role(config["opb_title"], "1% Better.dev", "Toronto, ON | Jul 2025 - Present", styles))
-    items.append(bullets(config["opb_bullets"], styles))
+    items.extend(bullets(config["opb_bullets"], styles))
     items.extend(build_common_experience(styles))
 
     items.extend(section(config["project_section_title"], styles))
