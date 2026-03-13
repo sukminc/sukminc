@@ -11,8 +11,135 @@ from reportlab.platypus import HRFlowable, ListFlowable, ListItem, Paragraph, Si
 
 
 ROOT = Path(__file__).resolve().parent
-OUTPUT = ROOT / "Chris_Yoon_Resume_2026.pdf"
 AVENIR_NEXT = "/System/Library/Fonts/Avenir Next.ttc"
+CONTACT_LINE_1 = "North York, ON | 416-300-7316 | chris.yoon@outlook.com"
+CONTACT_LINE_2 = "linkedin.com/in/sukminyoon | github.com/sukminc | onepercentbetter.dev"
+
+VARIANTS = {
+    "data_engineer": {
+        "filename": "Chris_Yoon_Data_Engineer_Resume_2026.pdf",
+        "eyebrow": "Senior Data Engineer | Analytics Systems | Public Build Discipline",
+        "summary": (
+            "Senior Data Engineer with 10+ years building data systems that stay reliable under real production pressure. "
+            "At theScore / ESPN Bet, I built and maintained Airflow-orchestrated pipelines across BigQuery and Redshift "
+            "for millions of daily transactions, created a Python observability framework that cut debugging overhead by "
+            "60 percent, and delivered SOX-facing reconciliation workflows with full audit visibility. I now pair that "
+            "production discipline with 1% Better.dev, where I keep shipping small products in public and sharpen my "
+            "engineering judgment through rapid build-measure-learn loops."
+        ),
+        "strengths": [
+            "<b>Data Engineering</b>  ETL and ELT design, Apache Airflow, warehouse modeling, reconciliation pipelines, schema drift handling, data quality gates",
+            "<b>Languages and Frameworks</b>  Python, SQL, FastAPI, Pandas, NumPy, SQLAlchemy, TypeScript",
+            "<b>Platforms and Tools</b>  BigQuery, Redshift, PostgreSQL, Docker, GitHub Actions, Jenkins, Pytest, Playwright, Stripe API",
+            "<b>Value I Bring</b>  Production reliability, quality-first delivery, failure-mode thinking, and clear communication under ambiguity",
+        ],
+        "opb_title": "Founder and Product Engineer",
+        "opb_bullets": [
+            "Built a public product studio to keep shipping while learning modern AI-assisted development workflows, with work visible across a live site, linked repositories, and recent commit history.",
+            "Shaped small-scope products such as 1% Better Today and 1% Better Focus to practice the loop I value most: ship something clear, learn fast, and improve.",
+            "Use the platform as a proof layer for recruiters and hiring managers by connecting resume claims to live work and visible execution.",
+        ],
+        "project_section_title": "SELECTED PROJECTS",
+        "projects": [
+            {
+                "name": "Blue Jays Moneyball ETL",
+                "meta": "Public repo | Live",
+                "bullets": [
+                    "Production-style Airflow and PostgreSQL pipeline with fail-fast data quality gates.",
+                    "Includes regression coverage that proves the guardrails still fail when they should, treating data safety as part of CI rather than documentation.",
+                ],
+            },
+            {
+                "name": "1% Better Today",
+                "meta": "Public repo | Current",
+                "bullets": [
+                    "Small daily reset product designed to be easy to release, easy to use, and easy to improve.",
+                    "Shows that I can move from idea to shipped product without hiding behind long planning cycles.",
+                ],
+            },
+            {
+                "name": "1% Better Focus",
+                "meta": "Public repo | Current",
+                "bullets": [
+                    "Lightweight focus timer built around a narrow user loop, quick iteration, and low-friction product scope.",
+                ],
+            },
+            {
+                "name": "TwelveLabs API Validator",
+                "meta": "Public repo | Live",
+                "bullets": [
+                    "Python validation framework for multimodal search covering fuzzy matching, multilingual queries, and injection-style edge cases.",
+                ],
+            },
+        ],
+        "signal_title": "PUBLIC BUILD SIGNAL",
+        "signal_body": [
+            "1% Better.dev gives recruiters a fast way to verify how I work now, not just what I did before: live product framing, linked repositories, and recent activity that support the resume.",
+            "The current focus is data engineering depth plus public shipping discipline. The longer-term poker specialist track exists, but it is not the center of this hiring story.",
+        ],
+    },
+    "ai_product_engineer": {
+        "filename": "Chris_Yoon_AI_Product_Engineer_Resume_2026.pdf",
+        "eyebrow": "AI Product Engineer | Full-Stack Builder | Public Build Discipline",
+        "summary": (
+            "Product-minded engineer with a data engineering backbone and 10+ years of production experience. "
+            "My foundation was built in data pipelines, validation, and reliability work at scale, most recently at "
+            "theScore / ESPN Bet. I now use 1% Better.dev as a public build studio to ship small applications, learn "
+            "AI-assisted workflows deeply, and turn ideas into visible products quickly. The combination I bring is "
+            "technical depth, fast iteration, and the discipline to keep improving in public."
+        ),
+        "strengths": [
+            "<b>Product Engineering</b>  Fast iteration, MVP scoping, full-stack implementation, public shipping loops, recruiter-friendly proof of work",
+            "<b>AI and Backend</b>  Python, FastAPI, LLM workflow integration, API orchestration, SQLAlchemy, Pandas, TypeScript, Next.js",
+            "<b>Infrastructure</b>  PostgreSQL, Docker, GitHub Actions, BigQuery, Redshift, Stripe API, Pytest, Playwright",
+            "<b>Value I Bring</b>  Build speed, practical product judgment, technical range, and the confidence to ship while still learning",
+        ],
+        "opb_title": "Founder and AI Product Engineer",
+        "opb_bullets": [
+            "Built 1% Better.dev as a public product studio for fast-release apps, live portfolio proof, and continuous growth while job searching.",
+            "Use ChatGPT and Claude as active collaborators in design, code, debugging, and iteration, which has dramatically increased my confidence and execution speed.",
+            "Shipped and refined products such as 1% Better Today and 1% Better Focus to practice tight product loops instead of overbuilding in private.",
+        ],
+        "project_section_title": "SELECTED PRODUCTS",
+        "projects": [
+            {
+                "name": "1% Better Today",
+                "meta": "Public repo | Current",
+                "bullets": [
+                    "Small daily reset product built around minimal friction and immediate usefulness.",
+                    "Represents the kind of narrow, shippable product I can move from concept to release quickly.",
+                ],
+            },
+            {
+                "name": "1% Better Focus",
+                "meta": "Public repo | Current",
+                "bullets": [
+                    "Lightweight focus timer shaped by the same thesis: clear value, low complexity, and visible progress.",
+                ],
+            },
+            {
+                "name": "ActionKeeper",
+                "meta": "Public repo | Building",
+                "bullets": [
+                    "Full-stack workflow product for structured offers, counters, and agreement tracking with persistent audit history.",
+                    "Shows product thinking around trust, negotiation state, and multi-step user flows.",
+                ],
+            },
+            {
+                "name": "Blue Jays Moneyball ETL",
+                "meta": "Public repo | Live",
+                "bullets": [
+                    "Keeps my backend and data engineering edge sharp through production-style pipelines and guardrail design.",
+                ],
+            },
+        ],
+        "signal_title": "WHY THIS PROFILE WORKS",
+        "signal_body": [
+            "I am intentionally targeting AI Product Engineer roles where shipping, taste, and technical adaptability matter as much as years in one exact stack.",
+            "1% Better.dev lets hiring teams see the through-line from resume to shipped work to recent activity, which makes the story easier to trust.",
+        ],
+    },
+}
 
 
 def register_fonts():
@@ -40,7 +167,7 @@ def build_styles():
             parent=styles["Normal"],
             fontName="AvenirNext-Regular",
             fontSize=10,
-            leading=13.2,
+            leading=13.1,
             alignment=TA_CENTER,
             textColor=colors.HexColor("#4E4A44"),
         ),
@@ -48,18 +175,18 @@ def build_styles():
             "Section",
             parent=styles["Heading2"],
             fontName="AvenirNext-Demi",
-            fontSize=11.2,
-            leading=14,
+            fontSize=11.1,
+            leading=13.8,
             spaceBefore=8,
-            spaceAfter=5,
+            spaceAfter=4,
             textColor=colors.HexColor("#111111"),
         ),
         "body": ParagraphStyle(
             "Body",
             parent=styles["Normal"],
             fontName="AvenirNext-Regular",
-            fontSize=9.95,
-            leading=13.6,
+            fontSize=9.85,
+            leading=13.2,
             spaceAfter=4,
             textColor=colors.HexColor("#171717"),
         ),
@@ -68,17 +195,18 @@ def build_styles():
             parent=styles["Normal"],
             fontName="AvenirNext-Regular",
             fontSize=9.7,
-            leading=12.9,
-            leftIndent=8,
+            leading=12.6,
+            leftIndent=0,
+            spaceAfter=0,
             textColor=colors.HexColor("#171717"),
         ),
         "role": ParagraphStyle(
             "Role",
             parent=styles["Normal"],
             fontName="AvenirNext-Demi",
-            fontSize=10.45,
-            leading=13,
-            spaceBefore=6,
+            fontSize=10.35,
+            leading=12.9,
+            spaceBefore=5,
             spaceAfter=1,
             textColor=colors.HexColor("#111111"),
         ),
@@ -86,8 +214,8 @@ def build_styles():
             "Meta",
             parent=styles["Normal"],
             fontName="AvenirNext-Medium",
-            fontSize=9.35,
-            leading=12.2,
+            fontSize=9.25,
+            leading=11.7,
             spaceAfter=2,
             textColor=colors.HexColor("#6A645C"),
         ),
@@ -95,8 +223,8 @@ def build_styles():
             "Eyebrow",
             parent=styles["Normal"],
             fontName="AvenirNext-Medium",
-            fontSize=9.2,
-            leading=12,
+            fontSize=9.1,
+            leading=11.8,
             alignment=TA_CENTER,
             textColor=colors.HexColor("#6A645C"),
         ),
@@ -113,95 +241,33 @@ def divider():
     )
 
 
+def section(title, styles):
+    return [Paragraph(title, styles["section"]), divider()]
+
+
+def role(title, company, meta, styles):
+    return [
+        Paragraph(f"{title} | {company}", styles["role"]),
+        Paragraph(meta, styles["meta"]),
+    ]
+
+
 def bullets(items, styles):
     return ListFlowable(
         [ListItem(Paragraph(item, styles["bullet"]), leftIndent=0) for item in items],
         bulletType="bullet",
         bulletFontName="AvenirNext-Regular",
-        bulletFontSize=7.5,
-        leftIndent=16,
-        spaceBefore=1,
-        spaceAfter=5,
+        bulletFontSize=7.4,
+        leftIndent=12,
+        bulletDedent=4,
+        spaceBefore=0,
+        spaceAfter=4,
     )
 
 
-def section(title, styles):
-    return [Paragraph(title, styles["section"]), divider()]
-
-
-def role(title, company, location, dates, styles):
-    return [
-        Paragraph(f"{title} | {company}", styles["role"]),
-        Paragraph(f"{location} | {dates}", styles["meta"]),
-    ]
-
-
-def story():
-    styles = build_styles()
-    items = [
-        Paragraph("Chris S. Yoon", styles["name"]),
-        Paragraph("Senior Data Engineer | Product Builder | Public Build Discipline", styles["eyebrow"]),
-        Spacer(1, 0.03 * inch),
-        Paragraph(
-            "North York, ON | 416-300-7316 | chris.yoon@outlook.com",
-            styles["contact"],
-        ),
-        Paragraph(
-            "linkedin.com/in/sukminyoon | github.com/sukminc | onepercentbetter.dev",
-            styles["contact"],
-        ),
-        Spacer(1, 0.05 * inch),
-    ]
-
-    items.extend(section("PROFESSIONAL SUMMARY", styles))
-    items.append(
-        Paragraph(
-            "Senior Data Engineer with 10+ years building data systems that stay reliable under real production pressure. At theScore / ESPN Bet, I built and maintained Airflow-orchestrated pipelines across BigQuery and Redshift for millions of daily transactions, created a Python observability framework that cut debugging overhead by 60 percent, and delivered SOX-facing reconciliation workflows with full audit visibility. I now pair that production discipline with hands-on product work through 1% Better.dev, where I ship small applications, learn AI-assisted workflows in public, and keep a visible build loop active while pursuing my next role.",
-            styles["body"],
-        )
-    )
-
-    items.extend(section("CORE STRENGTHS", styles))
-    items.append(
-        Paragraph(
-            "<b>Data Engineering</b>  ETL and ELT design, Apache Airflow, data quality gates, schema drift handling, reconciliation pipelines, warehouse modeling",
-            styles["body"],
-        )
-    )
-    items.append(
-        Paragraph(
-            "<b>Languages and Frameworks</b>  Python, SQL, FastAPI, Pandas, NumPy, SQLAlchemy, TypeScript, Next.js",
-            styles["body"],
-        )
-    )
-    items.append(
-        Paragraph(
-            "<b>Platforms and Tools</b>  BigQuery, Redshift, PostgreSQL, Docker, GitHub Actions, Jenkins, Pytest, Playwright, Stripe API",
-            styles["body"],
-        )
-    )
-    items.append(
-        Paragraph(
-            "<b>Current Focus</b>  AI-assisted product development, LLM workflow integration, public build discipline, and fast release loops",
-            styles["body"],
-        )
-    )
-
-    items.extend(section("EXPERIENCE", styles))
-
-    items.extend(role("Founder and Product Engineer", "1% Better.dev", "Toronto, ON", "Jul 2025 - Present", styles))
-    items.append(
-        bullets(
-            [
-                "Built a public product studio to keep shipping while learning modern AI-assisted development workflows, with work visible across a live site, linked repositories, and ongoing commit history.",
-                "Shaped and shipped small-scope products such as 1% Better Today and 1% Better Focus to prove a repeatable loop: pick a narrow problem, release quickly, learn, and improve.",
-                "Turned the platform into both a funding surface and a credibility layer by connecting resume claims to live products, recent activity, and product thinking.",
-            ],
-            styles,
-        )
-    )
-
-    items.extend(role("Senior Data Engineer", "theScore / ESPN Bet", "Toronto, ON", "Jul 2023 - Jul 2025", styles))
+def build_common_experience(styles):
+    items = []
+    items.extend(role("Senior Data Engineer", "theScore / ESPN Bet", "Toronto, ON | Jul 2023 - Jul 2025", styles))
     items.append(
         bullets(
             [
@@ -214,7 +280,7 @@ def story():
         )
     )
 
-    items.extend(role("Tech Lead, Contract", "Avesis via QA Consultants", "Remote", "Mar 2021 - Mar 2023", styles))
+    items.extend(role("Tech Lead", "QA Consultants", "Client: Avesis | Remote | Mar 2021 - Mar 2023", styles))
     items.append(
         bullets(
             [
@@ -225,7 +291,7 @@ def story():
         )
     )
 
-    items.extend(role("Data Engineer, Contract", "Jewelers Mutual via QA Consultants", "Remote", "Feb 2020 - Mar 2021", styles))
+    items.extend(role("Data Engineer", "QA Consultants", "Client: Jewelers Mutual | Remote | Feb 2020 - Mar 2021", styles))
     items.append(
         bullets(
             [
@@ -235,100 +301,54 @@ def story():
         )
     )
 
-    items.extend(section("ADDITIONAL EXPERIENCE", styles))
+    items.extend(section("EARLIER ENGINEERING BACKGROUND", styles))
     items.append(
         Paragraph(
-            "Wisetail, an Intertek company - Data / QA Automation Engineer | Toronto, ON | Aug 2019 - Feb 2020",
+            "Additional experience across Wisetail, Secret Location, and VRBO focused on automation, migration validation, release confidence, and backend data integrity. Those roles shaped the quality-first mindset I now bring to data and product engineering work.",
             styles["body"],
         )
     )
-    items.append(
-        Paragraph(
-            "Secret Location - SDET / QA Engineer | Toronto, ON | Jul 2018 - Jul 2019",
-            styles["body"],
-        )
-    )
-    items.append(
-        Paragraph(
-            "VRBO / Expedia Group - QA Engineer / Data Migration Analyst | Toronto, ON | Jul 2016 - Mar 2018",
-            styles["body"],
-        )
-    )
-    items.append(
-        Paragraph(
-            "Across these roles, I built SQL-backed validation, migration reconciliation, and automated release checks across policy systems, VR and mobile products, and large platform transitions.",
-            styles["body"],
-        )
-    )
+    return items
 
-    items.extend(section("SELECTED PROJECTS", styles))
 
-    items.extend(role("1% Better Today", "Public repo", "GitHub", "Current", styles))
-    items.append(
-        bullets(
-            [
-                "Small daily reset product designed to be easy to release, easy to use, and easy to improve.",
-                "Demonstrates low-friction product thinking and the kind of tight shipping loop I am intentionally practicing in public.",
-            ],
-            styles,
-        )
-    )
+def build_projects(projects, styles):
+    items = []
+    for project in projects:
+        items.extend(role(project["name"], project["meta"].split(" | ")[0], f"GitHub | {project['meta'].split(' | ')[1]}", styles))
+        items.append(bullets(project["bullets"], styles))
+    return items
 
-    items.extend(role("1% Better Focus", "Public repo", "GitHub", "Current", styles))
-    items.append(
-        bullets(
-            [
-                "Lightweight focus timer built around the same studio thesis: useful scope, fast shipping, and visible progress instead of overbuilt complexity.",
-            ],
-            styles,
-        )
-    )
 
-    items.extend(role("Blue Jays Moneyball ETL", "Public repo", "GitHub", "Live", styles))
-    items.append(
-        bullets(
-            [
-                "Production-style Airflow and PostgreSQL pipeline with fail-fast data quality gates.",
-                "Includes regression coverage that asserts the guardrails still fail when they should, treating data safety as part of CI rather than documentation.",
-            ],
-            styles,
-        )
-    )
+def build_story(variant_name):
+    config = VARIANTS[variant_name]
+    styles = build_styles()
+    items = [
+        Paragraph("Chris S. Yoon", styles["name"]),
+        Paragraph(config["eyebrow"], styles["eyebrow"]),
+        Spacer(1, 0.03 * inch),
+        Paragraph(CONTACT_LINE_1, styles["contact"]),
+        Paragraph(CONTACT_LINE_2, styles["contact"]),
+        Spacer(1, 0.05 * inch),
+    ]
 
-    items.extend(role("ActionKeeper", "Public repo", "GitHub", "Building", styles))
-    items.append(
-        bullets(
-            [
-                "Full-stack workflow product for structured offers, counters, and agreement tracking with persistent audit history.",
-                "Shows product thinking around trust, negotiation state, and clear user flows in multi-step decision workflows.",
-            ],
-            styles,
-        )
-    )
+    items.extend(section("PROFESSIONAL SUMMARY", styles))
+    items.append(Paragraph(config["summary"], styles["body"]))
 
-    items.extend(role("TwelveLabs API Validator", "Public repo", "GitHub", "Live", styles))
-    items.append(
-        bullets(
-            [
-                "Python validation framework for multimodal search covering fuzzy matching, multilingual queries, and injection-style edge cases.",
-            ],
-            styles,
-        )
-    )
+    items.extend(section("CORE STRENGTHS", styles))
+    for line in config["strengths"]:
+        items.append(Paragraph(line, styles["body"]))
 
-    items.extend(section("PUBLIC BUILD SIGNAL", styles))
-    items.append(
-        Paragraph(
-            "1% Better.dev gives recruiters a fast way to verify how I work now, not just what I did before: live product framing, linked repositories, recent commit activity, and a clear through-line from resume to portfolio.",
-            styles["body"],
-        )
-    )
-    items.append(
-        Paragraph(
-            "1% Better.poker is the longer-term specialist track. Right now the focus is shipping smaller applications quickly, learning LLM-assisted workflows deeply, and using public work as proof of execution.",
-            styles["body"],
-        )
-    )
+    items.extend(section("EXPERIENCE", styles))
+    items.extend(role(config["opb_title"], "1% Better.dev", "Toronto, ON | Jul 2025 - Present", styles))
+    items.append(bullets(config["opb_bullets"], styles))
+    items.extend(build_common_experience(styles))
+
+    items.extend(section(config["project_section_title"], styles))
+    items.extend(build_projects(config["projects"], styles))
+
+    items.extend(section(config["signal_title"], styles))
+    for paragraph in config["signal_body"]:
+        items.append(Paragraph(paragraph, styles["body"]))
 
     items.extend(section("EDUCATION AND CERTIFICATIONS", styles))
     items.append(
@@ -337,7 +357,6 @@ def story():
             styles["body"],
         )
     )
-
     return items
 
 
@@ -347,19 +366,24 @@ def add_page_number(canvas, doc):
     canvas.drawRightString(7.75 * inch, 0.42 * inch, f"Page {doc.page}")
 
 
-def main():
-    register_fonts()
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+def build_pdf(filename, story):
     doc = SimpleDocTemplate(
-        str(OUTPUT),
+        str(ROOT / filename),
         pagesize=LETTER,
         leftMargin=0.72 * inch,
         rightMargin=0.72 * inch,
         topMargin=0.6 * inch,
         bottomMargin=0.58 * inch,
     )
-    doc.build(story(), onFirstPage=add_page_number, onLaterPages=add_page_number)
-    print(f"Wrote {OUTPUT}")
+    doc.build(story, onFirstPage=add_page_number, onLaterPages=add_page_number)
+
+
+def main():
+    register_fonts()
+    ROOT.mkdir(parents=True, exist_ok=True)
+    for variant_name, config in VARIANTS.items():
+        build_pdf(config["filename"], build_story(variant_name))
+        print(f"Wrote {ROOT / config['filename']}")
 
 
 if __name__ == "__main__":

@@ -6,7 +6,9 @@ Toronto, ON
 Open to Senior Data Engineer, Analytics Engineer, Data Platform Engineer, and AI/Data roles  
 [LinkedIn](https://linkedin.com/in/sukminyoon) | [GitHub](https://github.com/sukminc) | [1% Better.dev](https://onepercentbetter.dev) | [1% Better.poker](https://onepercentbetter.poker)
 
-[Resume (PDF)](./resume/Chris_Yoon_Resume_2026.pdf)
+[Resume: Data Engineer](./resume/Chris_Yoon_Data_Engineer_Resume_2026.pdf)
+
+[Resume: AI Product Engineer](./resume/Chris_Yoon_AI_Product_Engineer_Resume_2026.pdf)
 
 ## What You Should Know
 
