@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from reportlab.lib import colors
@@ -11,147 +12,25 @@ from reportlab.platypus import HRFlowable, Paragraph, SimpleDocTemplate, Spacer
 
 
 ROOT = Path(__file__).resolve().parent
+PROFILE_PATH = ROOT.parents[1] / "one-percent-better-os" / "public_profile.json"
 AVENIR_NEXT = "/System/Library/Fonts/Avenir Next.ttc"
 CONTACT_LINE_1 = "North York, ON | chris.yoon@outlook.com"
-CONTACT_LINE_2 = (
-    '<link href="https://linkedin.com/in/sukminyoon" color="#4E4A44">linkedin.com/in/sukminyoon</link>'
-    ' | <link href="https://github.com/sukminc" color="#4E4A44">github.com/sukminc</link>'
-    ' | <link href="https://onepercentbetter.dev" color="#4E4A44">onepercentbetter.dev</link>'
-)
-OPB_ABOUT_URL = "https://www.onepercentbetter.dev/about"
 
-VARIANTS = {
-    "data_engineer": {
-        "filename": "Chris_Yoon_Data_Engineer_Resume_2026.pdf",
-        "eyebrow": "Senior Data Engineer | Pipeline Reliability | Data Quality",
-        "summary": (
-            "Senior Data Engineer with 10+ years across pipeline orchestration, data quality, reconciliation, and production validation. "
-            "At theScore / ESPN Bet, I built and maintained Airflow-orchestrated pipelines across BigQuery and Redshift for millions "
-            "of daily transactions, created a Python observability framework that cut debugging overhead by 60 percent, and delivered "
-            "SOX-facing workflows with full audit visibility. My edge is building data systems that stay trustworthy under pressure, "
-            "then making failure visible early enough to fix it before it spreads."
-        ),
-        "strengths": [
-            "<b>Data Engineering</b>  ETL and ELT design, Apache Airflow, warehouse modeling, reconciliation pipelines, schema drift handling, data quality gates",
-            "<b>Languages and Querying</b>  Python, SQL, Pandas, NumPy, SQLAlchemy, FastAPI, TypeScript",
-            "<b>Cloud and Platforms</b>  BigQuery, Redshift, PostgreSQL, Docker, GitHub Actions, Jenkins",
-            "<b>What I Optimize For</b>  Reliable pipelines, auditable data movement, earlier failure detection, and clear communication under ambiguity",
-        ],
-        "opb_title": "Founder and Product Engineer",
-        "opb_bullets": [
-            "Built 1% Better.dev as a public build layer for recent work, linked repositories, and visible execution while pursuing my next data engineering role.",
-            "Use small-scope products to keep shipping instincts sharp, shorten feedback loops, and stay hands-on across backend, data, and delivery decisions.",
-            "Treat the platform as a credibility surface: a hiring manager can move from resume to live site to repo activity in minutes.",
-        ],
-        "project_section_title": "SELECTED PROJECTS",
-        "projects": [
-            {
-                "name": "Blue Jays Moneyball ETL",
-                "meta": "Public repo | Live",
-                "url": "https://github.com/sukminc/bluejays-financial-mlops",
-                "bullets": [
-                    "Production-style Airflow and PostgreSQL pipeline with fail-fast data quality gates.",
-                    "Includes regression coverage that proves the guardrails still fail when they should, treating data safety as part of CI rather than documentation.",
-                ],
-            },
-            {
-                "name": "1% Better Today",
-                "meta": "Public repo | Current",
-                "url": "https://github.com/sukminc/one-percent-better-today",
-                "bullets": [
-                    "Small daily reset product designed to be easy to release, easy to use, and easy to improve.",
-                    "Shows that I can move from idea to shipped product without hiding behind long planning cycles.",
-                ],
-            },
-            {
-                "name": "1% Better Focus",
-                "meta": "Public repo | Current",
-                "url": "https://github.com/sukminc/one-percent-better-focus",
-                "bullets": [
-                    "Lightweight focus timer built around a narrow user loop, quick iteration, and low-friction product scope.",
-                ],
-            },
-            {
-                "name": "TwelveLabs API Validator",
-                "meta": "Public repo | Live",
-                "url": "https://github.com/sukminc/TwelveLabs",
-                "bullets": [
-                    "Python validation framework for multimodal search covering fuzzy matching, multilingual queries, and injection-style edge cases.",
-                ],
-            },
-        ],
-        "signal_title": "PUBLIC BUILD SIGNAL",
-        "signal_body": [
-            "1% Better.dev gives recruiters a fast way to verify how I work now, not just what I did before: live product framing, linked repositories, and recent activity that support the resume.",
-            "The hiring story is straightforward: proven data engineering experience first, public shipping discipline second, AI learning in support of better execution rather than as the main claim.",
-        ],
-    },
-    "ai_product_engineer": {
-        "filename": "Chris_Yoon_AI_Product_Engineer_Resume_2026.pdf",
-        "eyebrow": "AI Product Engineer | Full-Stack Builder | Public Build Discipline",
-        "summary": (
-            "Product-minded engineer with a data engineering backbone and 10+ years of production experience. "
-            "My foundation was built in data pipelines, validation, and reliability work at scale, most recently at "
-            "theScore / ESPN Bet. I now use 1% Better.dev as a public build studio to ship small applications, learn "
-            "AI-assisted workflows deeply, and turn ideas into visible products quickly. The combination I bring is "
-            "technical depth, fast iteration, and the discipline to keep improving in public."
-        ),
-        "strengths": [
-            "<b>Product Engineering</b>  Fast iteration, MVP scoping, full-stack implementation, public shipping loops, recruiter-friendly proof of work",
-            "<b>AI and Backend</b>  Python, FastAPI, LLM workflow integration, API orchestration, SQLAlchemy, Pandas, TypeScript, Next.js",
-            "<b>Infrastructure</b>  PostgreSQL, Docker, GitHub Actions, BigQuery, Redshift, Stripe API, Pytest, Playwright",
-            "<b>Value I Bring</b>  Build speed, practical product judgment, technical range, and the confidence to ship while still learning",
-        ],
-        "opb_title": "Founder and AI Product Engineer",
-        "opb_bullets": [
-            "Built 1% Better.dev as a public product studio for fast-release apps, live portfolio proof, and continuous growth while job searching.",
-            "Use ChatGPT and Claude as active collaborators in design, code, debugging, and iteration, which has dramatically increased my confidence and execution speed.",
-            "Shipped and refined products such as 1% Better Today and 1% Better Focus to practice tight product loops instead of overbuilding in private.",
-        ],
-        "project_section_title": "SELECTED PRODUCTS",
-        "projects": [
-            {
-                "name": "1% Better Today",
-                "meta": "Public repo | Current",
-                "url": "https://github.com/sukminc/one-percent-better-today",
-                "bullets": [
-                    "Small daily reset product built around minimal friction and immediate usefulness.",
-                    "Represents the kind of narrow, shippable product I can move from concept to release quickly.",
-                ],
-            },
-            {
-                "name": "1% Better Focus",
-                "meta": "Public repo | Current",
-                "url": "https://github.com/sukminc/one-percent-better-focus",
-                "bullets": [
-                    "Lightweight focus timer shaped by the same thesis: clear value, low complexity, and visible progress.",
-                ],
-            },
-            {
-                "name": "ActionKeeper",
-                "meta": "Public repo | Building",
-                "url": "https://github.com/sukminc/one-percent-better-poker-staking",
-                "bullets": [
-                    "Full-stack workflow product for structured offers, counters, and agreement tracking with persistent audit history.",
-                    "Shows product thinking around trust, negotiation state, and multi-step user flows.",
-                ],
-            },
-            {
-                "name": "Blue Jays Moneyball ETL",
-                "meta": "Public repo | Live",
-                "url": "https://github.com/sukminc/bluejays-financial-mlops",
-                "bullets": [
-                    "Keeps my backend and data engineering edge sharp through production-style pipelines and guardrail design.",
-                ],
-            },
-        ],
-        "signal_title": "WHY THIS PROFILE WORKS",
-        "signal_body": [
-            "I am intentionally targeting AI Product Engineer roles where shipping, taste, and technical adaptability matter as much as years in one exact stack.",
-            "1% Better.dev lets hiring teams see the through-line from resume to shipped work to recent activity, which makes the story easier to trust.",
-        ],
-    },
-}
+
+def load_profile() -> dict:
+    with PROFILE_PATH.open("r", encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+PROFILE = load_profile()
+LINKS = PROFILE["links"]
+CONTACT_LINE_2 = (
+    f'<link href="{LINKS["linkedin"]}" color="#4E4A44">linkedin.com/in/sukminyoon</link>'
+    f' | <link href="{LINKS["github"]}" color="#4E4A44">github.com/sukminc</link>'
+    f' | <link href="{LINKS["brand"]}" color="#4E4A44">onepercentbetter.dev</link>'
+)
+OPB_ABOUT_URL = LINKS["about"]
+VARIANTS = PROFILE["resume_variants"]
 
 
 def register_fonts():
