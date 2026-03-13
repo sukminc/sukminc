@@ -1,9 +1,9 @@
 # Chris Yoon
 
-Senior Data Engineer building reliable data systems, public product experiments, and small apps that ship fast.
+Senior Data Engineer building reliable pipelines, quality-first data systems, and public product experiments that show recent execution.
 
 Toronto, ON  
-Open to Senior Data Engineer, Analytics Engineer, Data Platform Engineer, and AI/Data roles  
+Open to Senior Data Engineer, Analytics Engineer, and Data Platform Engineer roles  
 [LinkedIn](https://linkedin.com/in/sukminyoon) | [GitHub](https://github.com/sukminc) | [1% Better.dev](https://onepercentbetter.dev) | [1% Better.poker](https://onepercentbetter.poker)
 
 [Resume: Data Engineer](./resume/Chris_Yoon_Data_Engineer_Resume_2026.pdf)
@@ -12,10 +12,11 @@ Open to Senior Data Engineer, Analytics Engineer, Data Platform Engineer, and AI
 
 ## What You Should Know
 
-- 10+ years across data engineering, QA automation, migration validation, and data quality.
+- 10+ years across data engineering, validation, migration, and data quality.
 - Most recent full-time role: Senior Data Engineer at theScore / ESPN Bet.
-- Current public build track: `1% Better.dev`, where I ship small products, learn LLM workflows, and keep a visible maker loop alive while job searching.
-- Longer-term specialist track: `1% Better.poker`, where I plan to apply the same engineering discipline to poker-focused products when timing and resources line up.
+- Main hiring story: proven data engineering experience first.
+- Current public build track: `1% Better.dev`, where I keep shipping small products and show recent work in public.
+- Longer-term specialist track: `1% Better.poker`, where I plan to apply the same engineering discipline to deeper domain products later.
 
 ## Experience Snapshot
 
@@ -29,9 +30,9 @@ Senior Data Engineer | Jul 2023 - Jul 2025
 ### 1% Better.dev
 Founder and Product Engineer | Jul 2025 - Present
 
-- Built a public product studio to keep shipping while learning modern AI-assisted development workflows.
-- Using the site, repos, and commit history as proof of execution rather than claiming ideas without artifacts.
-- Focused on small, clear products that can be released quickly and improved through tight feedback loops.
+- Built a public product studio that turns recent work into visible proof through a live site, linked repos, and ongoing activity.
+- Use small products to keep shipping instincts sharp and stay hands-on across backend, data, and delivery decisions.
+- Treat the platform as a credibility layer for recruiters and hiring managers rather than a place to make vague claims.
 
 ## Selected Work
 
@@ -49,7 +50,7 @@ Founder and Product Engineer | Jul 2025 - Present
 
 ## Hiring Signal
 
-I do my best work where data correctness, shipping discipline, and product judgment all matter. If you want someone who can build pipelines, catch edge cases early, and show recent proof of work in public, start with:
+I do my best work where data correctness, pipeline reliability, and engineering judgment all matter. If you want someone who can build pipelines, catch issues early, and show recent proof of work in public, start with:
 
 - [1% Better.dev](https://onepercentbetter.dev)
 - [GitHub activity](https://github.com/sukminc)
