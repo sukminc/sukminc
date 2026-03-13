@@ -18,26 +18,25 @@ CONTACT_LINE_2 = "linkedin.com/in/sukminyoon | github.com/sukminc | onepercentbe
 VARIANTS = {
     "data_engineer": {
         "filename": "Chris_Yoon_Data_Engineer_Resume_2026.pdf",
-        "eyebrow": "Senior Data Engineer | Analytics Systems | Public Build Discipline",
+        "eyebrow": "Senior Data Engineer | Pipeline Reliability | Data Quality",
         "summary": (
-            "Senior Data Engineer with 10+ years building data systems that stay reliable under real production pressure. "
-            "At theScore / ESPN Bet, I built and maintained Airflow-orchestrated pipelines across BigQuery and Redshift "
-            "for millions of daily transactions, created a Python observability framework that cut debugging overhead by "
-            "60 percent, and delivered SOX-facing reconciliation workflows with full audit visibility. I now pair that "
-            "production discipline with 1% Better.dev, where I keep shipping small products in public and sharpen my "
-            "engineering judgment through rapid build-measure-learn loops."
+            "Senior Data Engineer with 10+ years across pipeline orchestration, data quality, reconciliation, and production validation. "
+            "At theScore / ESPN Bet, I built and maintained Airflow-orchestrated pipelines across BigQuery and Redshift for millions "
+            "of daily transactions, created a Python observability framework that cut debugging overhead by 60 percent, and delivered "
+            "SOX-facing workflows with full audit visibility. My edge is building data systems that stay trustworthy under pressure, "
+            "then making failure visible early enough to fix it before it spreads."
         ),
         "strengths": [
             "<b>Data Engineering</b>  ETL and ELT design, Apache Airflow, warehouse modeling, reconciliation pipelines, schema drift handling, data quality gates",
-            "<b>Languages and Frameworks</b>  Python, SQL, FastAPI, Pandas, NumPy, SQLAlchemy, TypeScript",
-            "<b>Platforms and Tools</b>  BigQuery, Redshift, PostgreSQL, Docker, GitHub Actions, Jenkins, Pytest, Playwright, Stripe API",
-            "<b>Value I Bring</b>  Production reliability, quality-first delivery, failure-mode thinking, and clear communication under ambiguity",
+            "<b>Languages and Querying</b>  Python, SQL, Pandas, NumPy, SQLAlchemy, FastAPI, TypeScript",
+            "<b>Cloud and Platforms</b>  BigQuery, Redshift, PostgreSQL, Docker, GitHub Actions, Jenkins",
+            "<b>What I Optimize For</b>  Reliable pipelines, auditable data movement, earlier failure detection, and clear communication under ambiguity",
         ],
         "opb_title": "Founder and Product Engineer",
         "opb_bullets": [
-            "Built a public product studio to keep shipping while learning modern AI-assisted development workflows, with work visible across a live site, linked repositories, and recent commit history.",
-            "Shaped small-scope products such as 1% Better Today and 1% Better Focus to practice the loop I value most: ship something clear, learn fast, and improve.",
-            "Use the platform as a proof layer for recruiters and hiring managers by connecting resume claims to live work and visible execution.",
+            "Built 1% Better.dev as a public build layer for recent work, linked repositories, and visible execution while pursuing my next data engineering role.",
+            "Use small-scope products to keep shipping instincts sharp, shorten feedback loops, and stay hands-on across backend, data, and delivery decisions.",
+            "Treat the platform as a credibility surface: a hiring manager can move from resume to live site to repo activity in minutes.",
         ],
         "project_section_title": "SELECTED PROJECTS",
         "projects": [
@@ -75,7 +74,7 @@ VARIANTS = {
         "signal_title": "PUBLIC BUILD SIGNAL",
         "signal_body": [
             "1% Better.dev gives recruiters a fast way to verify how I work now, not just what I did before: live product framing, linked repositories, and recent activity that support the resume.",
-            "The current focus is data engineering depth plus public shipping discipline. The longer-term poker specialist track exists, but it is not the center of this hiring story.",
+            "The hiring story is straightforward: proven data engineering experience first, public shipping discipline second, AI learning in support of better execution rather than as the main claim.",
         ],
     },
     "ai_product_engineer": {
@@ -335,9 +334,14 @@ def build_story(variant_name):
         items.append(Paragraph(line, styles["body"]))
 
     items.extend(section("EXPERIENCE", styles))
-    items.extend(role(config["opb_title"], "1% Better.dev", "Toronto, ON | Jul 2025 - Present", styles))
-    items.extend(bullets(config["opb_bullets"], styles))
-    items.extend(build_common_experience(styles))
+    if variant_name == "data_engineer":
+        items.extend(build_common_experience(styles))
+        items.extend(role(config["opb_title"], "1% Better.dev", "Toronto, ON | Jul 2025 - Present", styles))
+        items.extend(bullets(config["opb_bullets"], styles))
+    else:
+        items.extend(role(config["opb_title"], "1% Better.dev", "Toronto, ON | Jul 2025 - Present", styles))
+        items.extend(bullets(config["opb_bullets"], styles))
+        items.extend(build_common_experience(styles))
 
     items.extend(section(config["project_section_title"], styles))
     items.extend(build_projects(config["projects"], styles))
