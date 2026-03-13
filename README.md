@@ -1,43 +1,54 @@
-# Chris Yoon — Senior Data Engineer & AI Builder
+# Chris Yoon
 
-**Toronto, ON · Open to Work**
+Senior Data Engineer building reliable data systems, public product experiments, and small apps that ship fast.
 
-I build data systems that don't lie and products that compound.
-Every project is an edge — engineered, measured, and shipped.
+Toronto, ON  
+Open to Senior Data Engineer, Analytics Engineer, Data Platform Engineer, and AI/Data roles  
+[LinkedIn](https://linkedin.com/in/sukminyoon) | [GitHub](https://github.com/sukminc) | [1% Better.dev](https://onepercentbetter.dev) | [1% Better.poker](https://onepercentbetter.poker)
 
----
+[Resume (PDF)](./resume/Chris_Yoon_Resume_2026.pdf)
 
-## What I Build
+## What You Should Know
 
-| Project | Description | Stack | Status |
-|---|---|---|---|
-| [onepercentbetter.poker](https://onepercentbetter.poker) | Performance analytics platform — behavioral deviation scoring & exploit signal engine | Next.js · FastAPI · Pandas | 🔨 Building |
-| [Blue Jays Moneyball ETL](https://github.com/sukminc/bluejays-financial-mlops) | Production-grade ELT pipeline with DQ gates that block downstream on failure — no silent errors | Airflow · PostgreSQL · Docker | ✅ Live |
-| [ActionKeeper](https://github.com/sukminc/one-percent-better-poker-staking) | Full-stack agreement platform with tamper-evident SHA-256 receipt hashing & dual-confirmation negotiation | FastAPI · Next.js · Stripe | 🔨 Building |
-| [1% Better Focus](https://github.com/sukminc/one-percent-better-focus) | Minimalist deep-work timer for iOS, Android & Web | Flutter · Dart · Supabase | 🔨 Building |
-| [TwelveLabs API Validator](https://github.com/sukminc/TwelveLabs) | JSON-driven multimodal video search validation suite — linguistic edge cases, fuzzy matching, injection testing | Python · Pytest | ✅ Live |
+- 10+ years across data engineering, QA automation, migration validation, and data quality.
+- Most recent full-time role: Senior Data Engineer at theScore / ESPN Bet.
+- Current public build track: `1% Better.dev`, where I ship small products, learn LLM workflows, and keep a visible maker loop alive while job searching.
+- Longer-term specialist track: `1% Better.poker`, where I plan to apply the same engineering discipline to poker-focused products when timing and resources line up.
 
----
+## Experience Snapshot
 
-## Stack
+### theScore / ESPN Bet
+Senior Data Engineer | Jul 2023 - Jul 2025
 
-```
-Data Engineering   Python · Apache Airflow · PostgreSQL · Docker · GitHub Actions
-Backend            FastAPI · SQLAlchemy · Pandas · NumPy
-Frontend           Next.js · TypeScript · Tailwind CSS
-Mobile             Flutter · Dart
-Testing            Pytest · Playwright · SDET patterns
-Cloud              Vercel · GCP
-```
+- Built and maintained Airflow-orchestrated ETL pipelines across BigQuery and Redshift for millions of daily betting transactions.
+- Designed a Python observability framework for 15+ pipelines that reduced debugging overhead by 60 percent.
+- Delivered reconciliation workflows for SOX-compliant financial and regulatory reporting with complete audit visibility.
 
----
+### 1% Better.dev
+Founder and Product Engineer | Jul 2025 - Present
 
-## Philosophy
+- Built a public product studio to keep shipping while learning modern AI-assisted development workflows.
+- Using the site, repos, and commit history as proof of execution rather than claiming ideas without artifacts.
+- Focused on small, clear products that can be released quickly and improved through tight feedback loops.
 
-> Every system has inefficiencies. Every market has edges.
-> I build data tools that find them — and compound the advantage 1% at a time.
+## Selected Work
 
----
+| Project | Why it matters |
+| --- | --- |
+| [1% Better Today](https://github.com/sukminc/one-percent-better-today) | Small daily reset product built around low-friction shipping and iteration. |
+| [1% Better Focus](https://github.com/sukminc/one-percent-better-focus) | Lightweight focus timer that reflects the current 1% Better thesis: useful, simple, and shippable. |
+| [Blue Jays Moneyball ETL](https://github.com/sukminc/bluejays-financial-mlops) | Airflow + PostgreSQL pipeline with fail-fast data quality gates and CI-backed regression coverage. |
+| [ActionKeeper](https://github.com/sukminc/one-percent-better-poker-staking) | Full-stack trust workflow product with structured negotiation and audit trail design. |
+| [TwelveLabs API Validator](https://github.com/sukminc/TwelveLabs) | Python validation framework covering fuzzy matching, multilingual inputs, and injection-style edge cases. |
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-sukminyoon-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/sukminyoon)
-[![Portfolio](https://img.shields.io/badge/Portfolio-onepercentbetter.poker-5E5CE6?style=flat)](https://onepercentbetter.poker)
+## Core Stack
+
+`Python` `SQL` `Apache Airflow` `FastAPI` `PostgreSQL` `BigQuery` `Redshift` `Docker` `GitHub Actions` `Next.js` `TypeScript` `Pytest` `Playwright`
+
+## Hiring Signal
+
+I do my best work where data correctness, shipping discipline, and product judgment all matter. If you want someone who can build pipelines, catch edge cases early, and show recent proof of work in public, start with:
+
+- [1% Better.dev](https://onepercentbetter.dev)
+- [GitHub activity](https://github.com/sukminc)
+- [LinkedIn](https://linkedin.com/in/sukminyoon)
