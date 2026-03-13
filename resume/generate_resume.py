@@ -12,7 +12,7 @@ from reportlab.platypus import HRFlowable, Paragraph, SimpleDocTemplate, Spacer
 
 ROOT = Path(__file__).resolve().parent
 AVENIR_NEXT = "/System/Library/Fonts/Avenir Next.ttc"
-CONTACT_LINE_1 = "North York, ON | 416-300-7316 | chris.yoon@outlook.com"
+CONTACT_LINE_1 = "North York, ON | chris.yoon@outlook.com"
 CONTACT_LINE_2 = (
     '<link href="https://linkedin.com/in/sukminyoon" color="#4E4A44">linkedin.com/in/sukminyoon</link>'
     ' | <link href="https://github.com/sukminc" color="#4E4A44">github.com/sukminc</link>'
@@ -349,7 +349,7 @@ def build_story(variant_name):
         Paragraph(config["eyebrow"], styles["eyebrow"]),
         Spacer(1, 0.03 * inch),
         Paragraph(
-            'North York, ON | 416-300-7316 | <link href="mailto:chris.yoon@outlook.com" color="#4E4A44">chris.yoon@outlook.com</link>',
+            'North York, ON | <link href="mailto:chris.yoon@outlook.com" color="#4E4A44">chris.yoon@outlook.com</link>',
             styles["contact"],
         ),
         Paragraph(CONTACT_LINE_2, styles["contact"]),
