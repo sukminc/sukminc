@@ -18,6 +18,7 @@ CONTACT_LINE_2 = (
     ' | <link href="https://github.com/sukminc" color="#4E4A44">github.com/sukminc</link>'
     ' | <link href="https://onepercentbetter.dev" color="#4E4A44">onepercentbetter.dev</link>'
 )
+OPB_ABOUT_URL = "https://www.onepercentbetter.dev/about"
 
 VARIANTS = {
     "data_engineer": {
@@ -264,10 +265,23 @@ def role(title, company, meta, styles):
     ]
 
 
-def bullets(items, styles):
+def linked_role(title, company, meta, url, styles):
+    linked_title = f'<link href="{url}" color="#111111">{title}</link>'
+    linked_company = f'<link href="{url}" color="#111111">{company}</link>'
+    linked_meta = f'<link href="{url}" color="#6A645C">{meta}</link>'
+    return [
+        Paragraph(f"{linked_title} | {linked_company}", styles["role"]),
+        Paragraph(linked_meta, styles["meta"]),
+    ]
+
+
+def bullets(items, styles, url=None):
     bullet_lines = []
     for item in items:
-        bullet_lines.append(Paragraph(f"•&nbsp;{item}", styles["bullet"]))
+        content = item
+        if url:
+            content = f'<link href="{url}" color="#171717">{item}</link>'
+        bullet_lines.append(Paragraph(f"•&nbsp;{content}", styles["bullet"]))
     bullet_lines.append(Spacer(1, 0.03 * inch))
     return bullet_lines
 
@@ -352,11 +366,11 @@ def build_story(variant_name):
     items.extend(section("EXPERIENCE", styles))
     if variant_name == "data_engineer":
         items.extend(build_common_experience(styles))
-        items.extend(role(config["opb_title"], "1% Better.dev", "Toronto, ON | Jul 2025 - Present", styles))
-        items.extend(bullets(config["opb_bullets"], styles))
+        items.extend(linked_role(config["opb_title"], "1% Better.dev", "Toronto, ON | Jul 2025 - Present", OPB_ABOUT_URL, styles))
+        items.extend(bullets(config["opb_bullets"], styles, url=OPB_ABOUT_URL))
     else:
-        items.extend(role(config["opb_title"], "1% Better.dev", "Toronto, ON | Jul 2025 - Present", styles))
-        items.extend(bullets(config["opb_bullets"], styles))
+        items.extend(linked_role(config["opb_title"], "1% Better.dev", "Toronto, ON | Jul 2025 - Present", OPB_ABOUT_URL, styles))
+        items.extend(bullets(config["opb_bullets"], styles, url=OPB_ABOUT_URL))
         items.extend(build_common_experience(styles))
 
     items.extend(section(config["project_section_title"], styles))
