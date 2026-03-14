@@ -11,6 +11,65 @@ Open to Senior Data Engineer, Analytics Engineer, Data Platform Engineer, AI Pro
 
 [Resume: AI Product Engineer](./resume/Chris_Yoon_AI_Product_Engineer_Resume_2026.pdf)
 
+## Job Search Copilot
+
+`LinkedIn`과 `Indeed` 저장 공고를 넣으면 현재 레쥬메 방향에 맞춰 어떤 버전으로 지원할지 추천하는 CLI를 추가했습니다.
+
+무엇을 해주나:
+
+- `Data Engineer`와 `AI Product Owner / Engineer` 트랙으로 공고를 점수화
+- 각 공고에 맞는 추천 레쥬메 PDF 자동 선택
+- 블로커(미국 거주 필수, 보안 클리어런스 등) 감지
+- 현재 방향, 검색 쿼리, 지원 큐를 Markdown/JSON으로 출력
+- 원하면 macOS `launchd`용 plist 생성
+
+샘플 실행:
+
+```bash
+cd /Users/chrisyoon/GitHub/sukminc
+python3 -m job_search.cli
+```
+
+직접 공고 파일 넣어서 실행:
+
+```bash
+cd /Users/chrisyoon/GitHub/sukminc
+python3 -m job_search.cli \
+  --input /absolute/path/to/jobs.csv \
+  --output-dir /Users/chrisyoon/GitHub/sukminc/tmp/job_search/latest
+```
+
+입력 포맷은 CSV 또는 JSON이며 다음 필드를 지원합니다:
+
+- `source`
+- `title`
+- `company`
+- `location`
+- `url`
+- `description`
+- `salary`
+- `posted_at`
+- `employment_type`
+- `job_id`
+- `notes`
+
+스케줄링용 plist 생성:
+
+```bash
+cd /Users/chrisyoon/GitHub/sukminc
+python3 -m job_search.cli \
+  --input /absolute/path/to/jobs.csv \
+  --write-launchd-plist /Users/chrisyoon/Library/LaunchAgents/com.chrisyoon.jobsearch.report.plist \
+  --run-hour 9 \
+  --run-minute 0
+```
+
+생성물:
+
+- `tmp/job_search/latest/profile_snapshot.json`
+- `tmp/job_search/latest/job_matches.json`
+- `tmp/job_search/latest/job_search_report.md`
+
 ## What You Should Know
 
 - 10+ years across data engineering, validation, migration, and data quality.

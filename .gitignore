@@ -1,4 +1,7 @@
 resume/rendered/
 resume/rendered-ai/
 resume/rendered-data/
+tmp/
 .DS_Store
+__pycache__/
+*.pyc

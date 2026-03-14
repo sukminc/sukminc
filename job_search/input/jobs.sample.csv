@@ -1,0 +1,5 @@
+source,title,company,location,url,description,salary,posted_at,employment_type,job_id,notes
+linkedin,Senior Data Engineer,Northstar Analytics,"Toronto, ON / Hybrid",https://example.com/jobs/1001,"Build Airflow and SQL pipelines in BigQuery, improve data quality, and own reconciliation for finance reporting.",,2026-03-13,Full-time,1001,
+indeed,AI Product Owner,Studio Loop,"Remote, Canada",https://example.com/jobs/1002,"Lead AI workflow experimentation, define MVP scope, and partner with engineers shipping FastAPI and LLM features.",,2026-03-12,Full-time,1002,
+linkedin,Software Engineer,Legacy Security,"New York, NY",https://example.com/jobs/1003,"Security clearance required. Must be located in the US and work 5 days onsite.",,2026-03-10,Full-time,1003,
+

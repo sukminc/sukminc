@@ -283,6 +283,8 @@ def build_pdf(filename, story):
         rightMargin=0.72 * inch,
         topMargin=0.6 * inch,
         bottomMargin=0.58 * inch,
+        # Keep PDFs byte-stable across rebuilds when the content has not changed.
+        invariant=1,
     )
     doc.build(story, onFirstPage=add_page_number, onLaterPages=add_page_number)
 
